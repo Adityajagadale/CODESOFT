@@ -1,0 +1,88 @@
+import java.util.Scanner;
+public class BankAccount {
+	static int balance=0;
+	int initial=0;
+	void deposit(int balance ) {
+		if(balance>0) {
+		this.initial=initial+balance;
+		this.balance=this.initial;
+		System.out.println("Successfully  Deposited amount" + balance + "Rs\n");
+	}
+		else {
+			System.out.println("Please enter valid entry");
+		}
+		}
+	void withdraw(int d) {
+		if(d>0 && d<=balance) {
+		this.balance=balance-d;
+		System.out.println("Successfully  withdrawed amount is :"+d+"Rs");
+		this.initial=this.balance;
+		}
+		else {
+			System.out.println("Insufficient balance for withdraw.");
+		
+		}
+	
+	}
+	void display() {
+		System.out.println(balance);
+	}
+
+}
+
+
+
+
+public class Atm {
+	int amount;
+	int choice;
+	 Atm(){
+		Scanner sc = new Scanner(System.in);
+		
+		BankAccount adi = new BankAccount();
+	do {
+	System.out.println("Welcome to XYX Bank");
+	System.out.println("Press:\n"+"1.Deposit Money");
+	System.out.println("2.Withdraw Money");
+	System.out.println("3.check Balance");
+	System.out.println("4.Exit\n");
+	System.out.print("Select option:");
+     choice = sc.nextInt();
+	switch(choice) {
+	case 1:
+		System.out.print("Enter the amount you want to deposit: ");
+	     amount=sc.nextInt();
+		adi.deposit(amount);
+		break;
+	case 2:
+		System.out.print("Enter the amount you want to withdraw: ");
+		amount=sc.nextInt();
+		adi.withdraw(amount);
+		break;
+	case 3:
+		System.out.print("The current balace in your account is:");
+		adi.display();
+		break;
+	case 4:
+		System.out.println("Thankyou");
+		break;
+	default:
+		System.out.println("Such input do not exist,Enter valid input.");
+		
+	}
+	}while(choice!=4);
+	sc.close();
+	
+	
+}
+
+		
+}
+public class Execute {
+	public static void main(String[] args) {
+	Atm machine= new Atm();
+	}
+
+}
+
+
